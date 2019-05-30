@@ -37,11 +37,11 @@ module.exports = {
   getCustomData: () => {
     return customData;
   },
-  getInstanceData: () => {
+  getInstanceData: async () => {
     return {
       hostname: os.hostname(),
-      cpuUsage: si.cpuCurrentspeed().avg,
-      memory: si.mem(),
+      cpuUsage: (await si.cpuCurrentspeed()).avg,
+      memory: await si.mem(),
     };
   },
   insertDatabaseCallSpeed: object => {
