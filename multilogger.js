@@ -41,13 +41,15 @@ module.exports = {
     return {
       hostname: os.hostname(),
       cpuUsage: si.cpuCurrentspeed().avg,
-	    memory: si.mem()
+      memory: si.mem(),
     };
   },
   insertDatabaseCallSpeed: object => {
     return logger.addToObject(object);
   },
-  insertCustomLog: logger.addToObject,
+  insertCustomLog: ob => {
+    return logger.addToObject(ob);
+  },
 };
 
 const _ = require('lodash');
